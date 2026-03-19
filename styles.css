@@ -543,8 +543,33 @@ a {
   }
 
   .feature-card__tooltip {
-    width: min(320px, 88vw);
+    width: min(300px, calc(100vw - 32px));
     font-size: 12px;
+    left: 0;
+    right: auto;
+    transform: translateY(8px);
+  }
+
+  .feature-card__tooltip::after,
+  .feature-card__tooltip::before {
+    left: 24px;
+    transform: none;
+  }
+
+  .feature-card:nth-child(even) .feature-card__tooltip {
+    left: auto;
+    right: 0;
+  }
+
+  .feature-card:nth-child(even) .feature-card__tooltip::after,
+  .feature-card:nth-child(even) .feature-card__tooltip::before {
+    left: auto;
+    right: 24px;
+  }
+
+  .feature-card:hover .feature-card__tooltip,
+  .feature-card:focus-visible .feature-card__tooltip {
+    transform: translateY(0);
   }
 
   .footer {
@@ -601,8 +626,7 @@ a {
   }
 
   .feature-card__tooltip {
-    width: min(280px, 92vw);
-    left: 50%;
+    width: min(260px, calc(100vw - 24px));
   }
 }
 
