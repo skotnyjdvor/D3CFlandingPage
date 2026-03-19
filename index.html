@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Your Personal Digital Racing Coach in Telegram</title>
+  <link rel="icon" type="image/png" href="assets/d3-text.png?v=3">
+  <link rel="shortcut icon" href="assets/d3-text.png?v=3">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__logo">
+      <img src="assets/d3-text.png?v=2" alt="D3 Karting" class="header__logo-img">
+    </div>
+    <nav class="header__nav">
+      <a href="#analysis" class="header__link">Analysis</a>
+      <span class="header__sep">|</span>
+      <a href="#features" class="header__link">Features</a>
+      <span class="header__sep">|</span>
+      <a href="#pricing" class="header__link">Pricing</a>
+      <span class="header__sep">|</span>
+      <a href="#faq" class="header__link">FAQ</a>
+    </nav>
+    <a href="https://t.me/d3racingbot" target="_blank" class="header__cta">
+      CONNECT BOT
+      <svg class="header__tg-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.492-1.302.486-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+    </a>
+  </header>
+
+  <!-- TUNNEL BACKGROUND -->
+  <canvas id="tunnelCanvas" class="tunnel-canvas"></canvas>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__logo-wrapper">
+      <div class="hero__logo-glow"></div>
+      <img src="assets/hero-logo.png" alt="D3 Karting AI" class="hero__logo">
+    </div>
+    <h1 class="hero__title">
+      YOUR PERSONAL<br>
+      DIGITAL RACING COACH IN TELEGRAM
+    </h1>
+    <a href="https://t.me/d3racingbot" target="_blank" class="hero__cta">
+      START ANALYSIS
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.492-1.302.486-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- BOT FEATURES -->
+  <section id="features" class="features">
+    <h2 class="features__title">BOT FEATURES</h2>
+    <div class="features__grid">
+      <article class="feature-card" tabindex="0">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="16" y="8" width="32" height="48" rx="6"/>
+            <line x1="24" y1="20" x2="40" y2="20"/>
+            <line x1="24" y1="28" x2="40" y2="28"/>
+            <line x1="24" y1="36" x2="34" y2="36"/>
+            <circle cx="32" cy="48" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 class="feature-card__title">📱 Works Directly in Telegram</h3>
+        <p class="feature-card__hint">Native Telegram</p>
+        <div class="feature-card__tooltip" role="tooltip">
+          No complex interfaces that take hours to figure out. Your race engineer already lives in the app. Just hit <code>/start</code> and you're ready to go.
+        </div>
+      </article>
+
+      <article class="feature-card" tabindex="0">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 18h40v28H22l-10 8v-8z"/>
+            <circle cx="24" cy="32" r="2" fill="currentColor"/>
+            <circle cx="32" cy="32" r="2" fill="currentColor"/>
+            <circle cx="40" cy="32" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 class="feature-card__title">💬 Real Conversations, Not Just Dry Charts</h3>
+        <p class="feature-card__hint">Conversational AI</p>
+        <div class="feature-card__tooltip" role="tooltip">
+          The bot doesn't just hand you a static PDF report. You can talk to it like a real coach. Ask things like: "What's wrong with my throttle application out of Turn 4?" and get a clear, detailed explanation.
+        </div>
+      </article>
+
+      <article class="feature-card" tabindex="0">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="10" y="14" width="24" height="34" rx="4"/>
+            <path d="M30 24 L54 24 L46 32 L54 40 L30 40"/>
+            <polyline points="16,24 22,30 30,20"/>
+          </svg>
+        </div>
+        <h3 class="feature-card__title">🏎 Effortless Sharing with Your Mechanic and Coach</h3>
+        <p class="feature-card__hint">Easy Sharing</p>
+        <div class="feature-card__tooltip" role="tooltip">
+          Telemetry, charts, and AI tips are delivered as regular chat messages. Forward a report in one tap so your mechanic can prep sprockets or tire pressure. Your session history stays securely saved in chat.
+        </div>
+      </article>
+
+      <article class="feature-card" tabindex="0">
+        <div class="feature-card__icon">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="32" y1="10" x2="32" y2="42"/>
+            <polyline points="22,22 32,10 42,22"/>
+            <path d="M16 50h32"/>
+            <path d="M16 42h8"/>
+            <path d="M40 42h8"/>
+          </svg>
+        </div>
+        <h3 class="feature-card__title">⚡ Insights Ready by the Time Your Helmet Is Off</h3>
+        <p class="feature-card__hint">Instant Results</p>
+        <div class="feature-card__tooltip" role="tooltip">
+          You get enough time to adjust kart setup and adapt your driving style before the next session starts.
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DECORATIVE SEPARATOR -->
+  <div class="separator">
+    <svg viewBox="0 0 40 20" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
+      <path d="M10 2 L20 12 L30 2"/>
+      <path d="M10 8 L20 18 L30 8"/>
+    </svg>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__copy">&copy; 2026 D3CF Technology</span>
+    <a href="https://t.me/d3racingbot" target="_blank" class="footer__cta">JOIN THE ELITE</a>
+    <a href="https://t.me/grandevita" target="_blank" class="footer__tg">Contact Telegram: @grandevita</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
