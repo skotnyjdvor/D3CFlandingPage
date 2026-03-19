@@ -69,10 +69,22 @@ function initTunnel() {
 
   let W, H, vpx, vpy;
   let time = 0;
+  const isLowPowerDevice =
+    window.matchMedia('(max-width: 1024px)').matches ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+  const RENDER_SCALE = isLowPowerDevice ? 0.74 : 0.9;
+  const RING_COUNT = isLowPowerDevice ? 18 : 24;
+  const CHART_POINTS = isLowPowerDevice ? 28 : 38;
+  const STREAK_COUNT = isLowPowerDevice ? 20 : 28;
+  const CORNER_POINT_COUNT = isLowPowerDevice ? 36 : 52;
 
   function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = Math.max(1, Math.floor(W * RENDER_SCALE));
+    canvas.height = Math.max(1, Math.floor(H * RENDER_SCALE));
+    ctx.setTransform(RENDER_SCALE, 0, 0, RENDER_SCALE, 0, 0);
+    ctx.imageSmoothingEnabled = true;
     vpx = W * 0.5;
     vpy = H * 0.35;
   }
@@ -119,8 +131,6 @@ function initTunnel() {
   // ================================================
   // DEPTH RINGS
   // ================================================
-
-  const RING_COUNT = 30;
 
   function drawDepthRings() {
     const phase = (time * 0.0002) % (1 / RING_COUNT);
@@ -211,8 +221,8 @@ function initTunnel() {
       ctx.lineWidth = cfg.chart.lw || 1.3;
       ctx.beginPath();
       const pts = [];
-      for (let i = 0; i <= 50; i++) {
-        const t = i / 50;
+      for (let i = 0; i <= CHART_POINTS; i++) {
+        const t = i / CHART_POINTS;
         const val = cfg.chart.fn(t, time);
         const px = cx1 + cw * t;
         const py = cy2 - ch * val;
@@ -243,8 +253,8 @@ function initTunnel() {
       if (cfg.chart2) {
         ctx.lineWidth = cfg.chart2.lw || 0.8;
         ctx.beginPath();
-        for (let i = 0; i <= 50; i++) {
-          const t = i / 50;
+        for (let i = 0; i <= CHART_POINTS; i++) {
+          const t = i / CHART_POINTS;
           const val = cfg.chart2.fn(t, time);
           const px = cx1 + cw * t;
           const py = cy2 - ch * val;
@@ -345,7 +355,7 @@ function initTunnel() {
   // ================================================
 
   const speedStreaks = [];
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < STREAK_COUNT; i++) {
     speedStreaks.push({
       x: Math.random() * W * 2 - W * 0.5,
       y: H * (0.04 + Math.random() * 0.8),
@@ -354,7 +364,7 @@ function initTunnel() {
       dir: Math.random() > 0.5 ? 1 : -1,
       alpha: 0.12 + Math.random() * 0.45,
       thick: 0.6 + Math.random() * 3,
-      side: i < 18 ? -1 : 1,
+      side: i < Math.ceil(STREAK_COUNT / 2) ? -1 : 1,
     });
   }
 
@@ -438,7 +448,7 @@ function initTunnel() {
     ctx.strokeStyle = `rgba(255,255,255,${0.1 * fl})`;
     ctx.lineWidth = 0.8;
     ctx.beginPath();
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < CORNER_POINT_COUNT; i++) {
       const px = W * 0.19 + i * (W * 0.0025);
       const py = H * 0.07 + Math.sin(i * 0.4 + time * 0.002) * 7 + Math.cos(i * 0.7 + time * 0.001) * 4;
       i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
@@ -446,7 +456,7 @@ function initTunnel() {
     ctx.stroke();
 
     ctx.beginPath();
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < CORNER_POINT_COUNT; i++) {
       const px = W * 0.68 + i * (W * 0.0025);
       const py = H * 0.07 + Math.sin(i * 0.3 + time * 0.0018 + 1) * 6 + Math.cos(i * 0.6 + time * 0.0012) * 3;
       i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
