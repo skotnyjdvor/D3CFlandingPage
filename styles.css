@@ -168,11 +168,16 @@ a {
 .hero__logo-wrapper {
   position: relative;
   margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .hero__logo {
   width: 380px;
   height: auto;
+  margin: 0 auto;
   filter: drop-shadow(0 0 30px rgba(255,255,255,0.15));
   animation: floatLogo 6s ease-in-out infinite;
 }
@@ -208,6 +213,8 @@ a {
   line-height: 1.35;
   text-transform: uppercase;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
   text-shadow: 0 0 40px rgba(255,255,255,0.1);
   max-width: 700px;
 }
