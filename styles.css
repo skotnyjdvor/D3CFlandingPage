@@ -425,6 +425,77 @@ a {
   transform: translateX(-50%) translateY(0);
 }
 
+/* ===== HOW TO START ===== */
+.start-section {
+  position: relative;
+  z-index: 1;
+  padding: 30px 40px 70px;
+  text-align: center;
+}
+
+.start-section__title {
+  font-family: 'Orbitron', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.start-section__subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 34px;
+}
+
+.start-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.start-card {
+  background: rgba(10, 10, 14, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px 16px 16px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.start-card:hover {
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 0 16px rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+.start-card__logo {
+  width: 100%;
+  max-width: 210px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.08));
+}
+
+.start-card__logo--unipro {
+  max-width: 250px;
+  height: 112px;
+}
+
+.start-card__name {
+  margin-top: 10px;
+  font-family: 'Orbitron', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+}
+
 /* ===== SEPARATOR ===== */
 .separator {
   position: relative;
@@ -579,6 +650,29 @@ a {
     transform: translateY(0);
   }
 
+  .start-section {
+    padding: 24px 20px 46px;
+  }
+
+  .start-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .start-card {
+    min-height: 170px;
+    padding: 14px 12px;
+  }
+
+  .start-card__logo {
+    height: 78px;
+  }
+
+  .start-card__logo--unipro {
+    max-width: 220px;
+    height: 88px;
+  }
+
   .footer {
     flex-direction: column;
     gap: 16px;
@@ -634,6 +728,14 @@ a {
 
   .feature-card__tooltip {
     width: min(260px, calc(100vw - 24px));
+  }
+
+  .start-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .start-section__subtitle {
+    font-size: 13px;
   }
 }
 
