@@ -20,12 +20,17 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
@@ -580,6 +585,16 @@ a {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .header,
+  .hero,
+  .features,
+  .start-section,
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .header {
     padding: 12px 20px;
   }
