@@ -468,6 +468,11 @@ a {
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
+.start-card--link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .start-card:hover {
   border-color: rgba(255,255,255,0.3);
   box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 0 16px rgba(255,255,255,0.06);
